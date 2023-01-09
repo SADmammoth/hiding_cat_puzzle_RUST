@@ -71,7 +71,7 @@ fn play(boxes_count: usize) -> Vec<usize> {
 
 fn check_strat(boxes_count: usize, current_strat: Vec<usize>) {
     println!("Cool! So, let me check...",);
-    let best_strats = &find_best_strats(boxes_count, 100000, 20);
+    let best_strats = &find_best_strats(boxes_count, 100000, 10);
 
     'strats_checker: for best_strat in best_strats {
         for (i, box_index) in current_strat.iter().enumerate() {
@@ -89,7 +89,7 @@ fn check_strat(boxes_count: usize, current_strat: Vec<usize>) {
         best_strats[0]
             .0
             .iter()
-            .map(|box_index| (box_index).to_string())
+            .map(|box_index| (box_index + 1).to_string())
             .collect::<Vec<String>>()
             .join(", "),
         best_strats[0].1
